@@ -6,11 +6,12 @@ public class XRManager : MonoBehaviour
 {
     [SerializeField] GameObject hand;
     [SerializeField] GameObject item;
+    Animator handAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        handAnimator = hand.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -19,17 +20,20 @@ public class XRManager : MonoBehaviour
         
     }
 
-    void ShowGameObject(GameObject gO){
+    void ShowGameObject(){
         // Animate hand to hold object
-        // Activate gameobject
+        handAnimator.SetTrigger("HoldObject");
 
-        item = gO;
+        // Activate gameobject
+        item.SetActive(true);
+
     }
 
     void HideGameObject(){
         // Return hand to other animation
-        // Deactivate gameobject
+        handAnimator.SetTrigger("FreeHand");
 
-        // clear item
+        // Deactivate gameobject
+        item.SetActive(false);
     }
 }
