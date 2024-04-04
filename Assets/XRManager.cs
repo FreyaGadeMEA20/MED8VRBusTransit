@@ -19,8 +19,7 @@ public class XRManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {       
-        print(handSwitch.action.ReadValue<float>());
+    {
         bool hSwitch = false; 
         if(handSwitch.action.ReadValue<float>() > 0.8f){
             hSwitch = !hSwitch;
