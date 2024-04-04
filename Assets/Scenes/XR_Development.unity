@@ -225,6 +225,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 153504837899863829, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+      propertyPath: handSwitch.m_Reference
+      value: 
+      objectReference: {fileID: 2552725887662380074, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 153504837899863829, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+      propertyPath: handSwitch.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 153504837899863829, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+      propertyPath: handSwitch.m_Action.m_Name
+      value: Hand Switch
+      objectReference: {fileID: 0}
+    - target: {fileID: 233176129465277932, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1440653578206990563, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -269,11 +285,65 @@ PrefabInstance:
       propertyPath: m_Name
       value: VR Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 5810010094597361231, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+      propertyPath: handSwitch.m_Reference
+      value: 
+      objectReference: {fileID: -2720512325340609610, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 5810010094597361231, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+      propertyPath: handSwitch.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810010094597361231, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+      propertyPath: handSwitch.m_Action.m_Name
+      value: Hand Switch
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393380080892849838, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 9a7fe8a1add7d954786cf6d0a30cb10e, type: 3}
+    - target: {fileID: 8807075725388825282, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 4a27ec18f2bc1b14694da412cddf0221, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2162828768704578409, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 331257379}
   m_SourcePrefab: {fileID: 100100000, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+--- !u!1 &331257378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2162828768704578409, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+  m_PrefabInstance: {fileID: 331257377}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &331257379
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331257378}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

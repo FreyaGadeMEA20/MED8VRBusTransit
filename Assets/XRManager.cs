@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class XRManager : MonoBehaviour
 {
     [SerializeField] GameObject hand;
     [SerializeField] GameObject item;
+
+    public InputActionProperty handSwitch;
     Animator handAnimator;
 
     // Start is called before the first frame update
@@ -16,8 +19,21 @@ public class XRManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {       
+        print(handSwitch.action.ReadValue<float>());
+        bool hSwitch = false; 
+        if(handSwitch.action.ReadValue<float>() > 0.8f){
+            hSwitch = !hSwitch;
+        }
+
+        switch(hSwitch){
+            case true:
+                ShowGameObject();
+                break;
+            case false:
+                HideGameObject();
+                break;
+        }
     }
 
     void ShowGameObject(){
