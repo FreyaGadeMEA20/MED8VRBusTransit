@@ -4,3 +4,5 @@ cypress_.TGA filter=lfs diff=lfs merge=lfs -text
 fbx.FBX filter=lfs diff=lfs merge=lfs -text
 tx_cadillac_ATS_normal.TGA filter=lfs diff=lfs merge=lfs -text
 cypress_.obj filter=lfs diff=lfs merge=lfs -text
+cypress_.max filter=lfs diff=lfs merge=lfs -text
+cypress_.fbx filter=lfs diff=lfs merge=lfs -text
