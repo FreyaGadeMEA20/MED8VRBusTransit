@@ -16,9 +16,11 @@ public class BusGameManager : MonoBehaviour
     // Current state of the game
     private GameState currentState;
 
-    private bool PHONE_STATE_CHANGED = false;
-    private bool SIGN_STATE_CHANGED = false;
-    private bool BUS_STATE_CHANGED = false;
+    // -- Objects for checking states -- //
+    public GameObject phone;
+    //public GameObject signArea;
+    //public CheckIn checkIn;
+    //public TransportScript bus;
 
     // Start is called before the first frame update
     void Start()
@@ -55,17 +57,32 @@ public class BusGameManager : MonoBehaviour
         }
     }
 
-    void UpdateSchoolState(){
+    // Countdown timer variables
+    private float countdownTimer = 3f;
+    private bool isCountingDown = true;
+    void UpdateSchoolState() {
         // Check if the GameObject is visible in the viewport
-        if (IsGameObjectVisibleInViewport(gameObject))
-        {
+        if (IsGameObjectVisibleInViewport(phone)) {
             // The GameObject is visible, do something
-            Debug.Log("GameObject is visible in the viewport");
-        }
-        else
-        {
-            // The GameObject is not visible, do something else
-            Debug.Log("GameObject is not visible in the viewport");
+
+            if (isCountingDown) {
+                countdownTimer -= Time.deltaTime;
+                Debug.Log($"GameObject has been visible in the viewport for {(countdownTimer-3)*-1} seconds");
+
+                if (countdownTimer <= 0f) {
+                    // Countdown finished, do something
+                    Debug.Log("Countdown finished");
+                    GameState = GameState.PHONE;
+                    // Reset the countdown timer
+                    //countdownTimer = 3f;
+                    isCountingDown = false;
+                }
+            }
+            else {
+                // Reset the countdown timer if the GameObject is not visible
+                countdownTimer = 3f;
+                isCountingDown = true;
+            }
         }
     }
 
@@ -84,6 +101,11 @@ public class BusGameManager : MonoBehaviour
     
     bool IsGameObjectVisibleInViewport(GameObject gameObject)
     {
+        if(!gameObject.activeSelf) {
+            countdownTimer = 3f;
+            return false;
+        }
+
         // Get the main camera
         Camera mainCamera = Camera.main;
 
@@ -91,7 +113,11 @@ public class BusGameManager : MonoBehaviour
         Vector3 viewportPosition = mainCamera.WorldToViewportPoint(gameObject.transform.position);
 
         // Check if the GameObject is within the viewport bounds
-        if (viewportPosition.x >= 0 && viewportPosition.x <= 1 && viewportPosition.y >= 0 && viewportPosition.y <= 1 && viewportPosition.z > 0)
+        if (viewportPosition.x >= 0.2
+            && viewportPosition.x <= .8
+            && viewportPosition.y >= 0.2
+            && viewportPosition.y <= .8
+            && viewportPosition.z > 0)
         {
             return true;
         }
