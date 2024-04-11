@@ -39,8 +39,8 @@ public class WaypointMover : MonoBehaviour
 
                 case MovementState.Waiting:
                     yield return new WaitUntil(() => hasCheckedIn == true);
-                    //yield return new WaitForSeconds(waypointClass.waitingTime);
                     Debug.Log("Bus has checked in");
+                    yield return new WaitForSeconds(waypointClass.waitingTime);
                     currentMovementState = MovementState.Moving;
                     break;
             }
@@ -133,12 +133,16 @@ public class WaypointMover : MonoBehaviour
                 return;
             }
 
+            Vector3 targetPosition = currentWaypoint.position;
+            targetPosition.y = transform.position.y;
             
             // Move towards the waypoint
-            transform.position = Vector3.MoveTowards(transform.position, currentWaypoint.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+            float distanceToPoint = Vector3.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(targetPosition.x, targetPosition.z));
 
             // If we are at the waypoint, find the next
-            if (transform.position == currentWaypoint.position){
+            if (distanceToPoint <= 0.1f){
                 waypointClass = currentWaypoint.GetComponent<WaypointClass>();
 
                 currentWaypoint = waypoints.GetNextWaypoint(currentWaypoint, carSpawner.routeIndex);
