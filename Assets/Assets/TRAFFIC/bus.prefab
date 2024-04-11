@@ -143,12 +143,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: {fileID: 0}
   carSpawner: {fileID: 0}
+  waypointClass: {fileID: 0}
   moveSpeed: 5
   rotationSpeed: 5
   safeDistance: 1
   canMove: 1
   routeIndex: 0
   entityType: 
+  hasCheckedIn: 0
+  currentMovementState: 0
 --- !u!54 &-3486751074135560854
 Rigidbody:
   m_ObjectHideFlags: 0

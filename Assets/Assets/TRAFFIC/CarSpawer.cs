@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CarSpawner : MonoBehaviour
 {
-    public GameObject carPrefab; // Prefab of the car to be spawned
+    public GameObject[] carPrefabs; // Prefab of the car to be spawned
     public GameObject busPrefab;
     //public List<Transform> startWaypoints; // List of start waypoints where cars can spawn
     public Waypoints waypoints; // Reference to the Waypoints script
@@ -89,6 +89,9 @@ public class CarSpawner : MonoBehaviour
 
         Transform startWaypoint = waypoints.routes[routeIndex].waypoints[0];
         Debug.Log("Start Waypoint: " + startWaypoint.name);
+
+        // Select a random prefab from the carPrefabs array
+        GameObject carPrefab = carPrefabs[Random.Range(0, carPrefabs.Length)];
 
         GameObject newCar = Instantiate(carPrefab, startWaypoint.position, startWaypoint.rotation);
         Debug.Log("Car Spawned: " + newCar.name + " at " + startWaypoint.position + " with index " + routeIndex);
