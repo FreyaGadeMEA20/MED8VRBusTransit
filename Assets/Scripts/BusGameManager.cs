@@ -22,6 +22,16 @@ public class BusGameManager : MonoBehaviour
     //public CheckIn checkIn;
     //public TransportScript bus;
 
+    [SerializeField] ProxCheckerScript SignScript;
+    [SerializeField] ProxCheckerScript BusStopScript;
+    [SerializeField] BusCheckInScript BusScript;
+
+    private bool hasCheckedIn{
+        get{return HasCheckedIn;}
+        set{HasCheckedIn = value;}
+    }
+
+    public bool HasCheckedIn;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,11 +97,57 @@ public class BusGameManager : MonoBehaviour
     }
 
     void UpdatePhoneState(){
+        if(SignScript.CheckPlayerProximity()){
+            if (isCountingDown) {
+                countdownTimer -= Time.deltaTime;
+                Debug.Log($"Player has been by the sign for {(countdownTimer-3)*-1} seconds");
 
+                if (countdownTimer <= 0f) {
+                    // Countdown finished, do something
+                    Debug.Log("Countdown finished");
+                    currentState = GameState.SIGN;
+                    // Reset the countdown timer
+                    //countdownTimer = 3f;
+                    isCountingDown = false;
+                }
+            }
+            else {
+                // reset the countdown if it is not counting down
+                countdownTimer = 3f;
+                isCountingDown = true;
+            }
+        } else {
+            // Reset the countdown timer if the GameObject is not visible
+            countdownTimer = 3f;
+            isCountingDown = true;
+        }
     }
 
     void UpdateSignState(){
+        /*if(BusStopScript.CheckPlayerProximity()){
+            if (isCountingDown) {
+                countdownTimer -= Time.deltaTime;
+                Debug.Log($"Player has been by the bus stop for {(countdownTimer-3)*-1} seconds");
 
+                if (countdownTimer <= 0f) {
+                    // Countdown finished, do something
+                    Debug.Log("Countdown finished");
+                    currentState = GameState.SIGN;
+                    // Reset the countdown timer
+                    //countdownTimer = 3f;
+                    isCountingDown = false;
+                }
+            }
+            else {
+                // reset the countdown if it is not counting down
+                countdownTimer = 3f;
+                isCountingDown = true;
+            }
+        } else {
+            // Reset the countdown timer if the GameObject is not visible
+            countdownTimer = 3f;
+            isCountingDown = true;
+        }*/
     }
     
     void UpdateBusState(){

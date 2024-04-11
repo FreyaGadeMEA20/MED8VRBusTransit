@@ -16,7 +16,6 @@ public class RejskortStanderFunctions : MonoBehaviour
     public Material checkedOut_alreadyCheckedOut; // Material Til afvist
 
     public Renderer ScreenText; // Reference til det object der skal have �ndret materiale
-  
 
     private Material originalMaterial;
    
@@ -24,7 +23,7 @@ public class RejskortStanderFunctions : MonoBehaviour
     private bool isCoroutineRunning = false; 
     public bool checkIndStander; // If this is a checkInd stander, then this is true. If it is a checkUd stander, then this is false.
 
-
+    [SerializeField] BusGameManager GameManager;
     private void Start()
     {
 
@@ -35,18 +34,19 @@ public class RejskortStanderFunctions : MonoBehaviour
         {
             originalMaterial = ScreenText.material;
         }
+
+        GameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<BusGameManager>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-
         if(checkIndStander)
         {
             if (canInteract)
             {
-                if (other.CompareTag("Skolekort"))
+                if (other.gameObject.CompareTag("Skolekort"))
                 {
-                    if (GameManager.instance.hasCheckedIn)
+                    if (GameManager.HasCheckedIn)
                     {
                         // Already checked in
                         HandleAlreadyCheckedIn();
@@ -69,7 +69,7 @@ public class RejskortStanderFunctions : MonoBehaviour
             {
                 if (other.CompareTag("Skolekort"))
                 {
-                    if (GameManager.instance.hasCheckedIn)
+                    if (GameManager.HasCheckedIn)
                     {
                         // Already checked in
 
@@ -115,7 +115,7 @@ public class RejskortStanderFunctions : MonoBehaviour
         Blaatlys.enabled = false;
         audioSource.Play();
         canInteract = false;
-        GameManager.instance.hasCheckedIn = true;
+        GameManager.HasCheckedIn = true;
         Debug.Log("Checked in");
 
         // Change material on ScreenText to OkText
@@ -148,7 +148,7 @@ public class RejskortStanderFunctions : MonoBehaviour
         Blaatlys.enabled = false;
         audioSource.Play();
         canInteract = false;
-        GameManager.instance.hasCheckedIn = false;
+        GameManager.HasCheckedIn = false;
         Debug.Log("Checked out");
 
         // Change material on ScreenText to OkText
@@ -174,22 +174,22 @@ public class RejskortStanderFunctions : MonoBehaviour
     private IEnumerator ResetLightAndAudio()
     {
         if (!isCoroutineRunning)
-    {
-        isCoroutineRunning = true; // Set the flag to indicate the coroutine is running
-
-        yield return new WaitForSeconds(4.0f);
-
-        Blaatlys.enabled = true;
-        
-        canInteract = true;
-
-        if (ScreenText != null)
         {
-            ScreenText.material = originalMaterial;
-        }
+            isCoroutineRunning = true; // Set the flag to indicate the coroutine is running
 
-        isCoroutineRunning = false; // Reset the flag when the coroutine is done
-    }
+            yield return new WaitForSeconds(4.0f);
+
+            Blaatlys.enabled = true;
+            
+            canInteract = true;
+
+            if (ScreenText != null)
+            {
+                ScreenText.material = originalMaterial;
+            }
+
+            isCoroutineRunning = false; // Reset the flag when the coroutine is done
+        }
 
     }
 
