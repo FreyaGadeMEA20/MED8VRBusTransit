@@ -6,7 +6,7 @@ public class ProxCheckerScript : MonoBehaviour
 {
     [SerializeField] LayerMask playerLayer;
     [SerializeField] GameObject sign;
-    bool playerInProx { get; private set; }
+    bool playerInProx { get; set; }
 
     // Start is called before the first frame update
     void Start()
