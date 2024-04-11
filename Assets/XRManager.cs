@@ -15,6 +15,7 @@ public class XRManager : MonoBehaviour
     void Start()
     {
         handAnimator = hand.GetComponent<Animator>();
+        item.SetActive(false);
     }
 
     // Update is called once per frame
