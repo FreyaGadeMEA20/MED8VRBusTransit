@@ -72,7 +72,7 @@ public class BusGameManager : MonoBehaviour
                 if (countdownTimer <= 0f) {
                     // Countdown finished, do something
                     Debug.Log("Countdown finished");
-                    GameState = GameState.PHONE;
+                    currentState = GameState.PHONE;
                     // Reset the countdown timer
                     //countdownTimer = 3f;
                     isCountingDown = false;
