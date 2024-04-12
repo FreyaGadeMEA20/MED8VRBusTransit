@@ -124,7 +124,7 @@ public class BusGameManager : MonoBehaviour
     }
 
     void UpdateSignState(){
-        /*if(BusStopScript.CheckPlayerProximity()){
+        if(BusStopScript.CheckPlayerProximity()){
             if (isCountingDown) {
                 countdownTimer -= Time.deltaTime;
                 Debug.Log($"Player has been by the bus stop for {(countdownTimer-3)*-1} seconds");
@@ -132,7 +132,7 @@ public class BusGameManager : MonoBehaviour
                 if (countdownTimer <= 0f) {
                     // Countdown finished, do something
                     Debug.Log("Countdown finished");
-                    currentState = GameState.SIGN;
+                    currentState = GameState.BUS;
                     // Reset the countdown timer
                     //countdownTimer = 3f;
                     isCountingDown = false;
@@ -147,11 +147,14 @@ public class BusGameManager : MonoBehaviour
             // Reset the countdown timer if the GameObject is not visible
             countdownTimer = 3f;
             isCountingDown = true;
-        }*/
+        }
     }
     
     void UpdateBusState(){
-        
+        if(hasCheckedIn)
+        {
+            Debug.Log("Game finished");
+        }
     }
 
     

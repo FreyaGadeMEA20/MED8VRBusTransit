@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ProxCheckerScript : MonoBehaviour {
-    [SerializeField] LayerMask playerLayer;
     [SerializeField] GameObject sign;
     bool playerInProx { get; set; }
 
