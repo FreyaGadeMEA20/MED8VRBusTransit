@@ -15,6 +15,7 @@ public class CarSpawner : MonoBehaviour
     public float busSpawnDelay = 5f;
     public int busRouteIndex;
     public bool hasSpawnedBus = false;
+    public bool canSpawnBus = false;
 
     public bool doSpawnCars = true;
 
@@ -61,7 +62,7 @@ public class CarSpawner : MonoBehaviour
             waitTime = Random.Range(spawnIntervalMin, spawnIntervalMax);
             yield return new WaitForSeconds(waitTime);            
 
-            if (timeElapsed >= busSpawnDelay && !hasSpawnedBus){
+            if (timeElapsed >= busSpawnDelay && !hasSpawnedBus && canSpawnBus){
                 hasSpawnedBus = true;
                 SpawnBus();
                 Debug.Log("Bus Spawned");
