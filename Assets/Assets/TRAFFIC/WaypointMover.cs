@@ -38,9 +38,15 @@ public class WaypointMover : MonoBehaviour
                     break;
 
                 case MovementState.Waiting:
+                    carSpawner.doSpawnCars = false;
+
                     yield return new WaitUntil(() => hasCheckedIn == true);
                     Debug.Log("Bus has checked in");
+
                     yield return new WaitForSeconds(waypointClass.waitingTime);
+
+                    carSpawner.doSpawnCars = true;
+
                     currentMovementState = MovementState.Moving;
                     break;
             }

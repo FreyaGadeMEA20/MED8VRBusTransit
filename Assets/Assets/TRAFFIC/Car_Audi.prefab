@@ -93,7 +93,7 @@ MonoBehaviour:
   waypoints: {fileID: 0}
   carSpawner: {fileID: 0}
   waypointClass: {fileID: 0}
-  moveSpeed: 5
+  moveSpeed: 10
   rotationSpeed: 5
   safeDistance: 2
   canMove: 1
