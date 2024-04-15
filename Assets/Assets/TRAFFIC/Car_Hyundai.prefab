@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6064876966366775400}
   - component: {fileID: 7291186470255116238}
   - component: {fileID: 6643891449050162484}
-  - component: {fileID: 7830054210681728069}
+  - component: {fileID: 2551312040686900536}
   m_Layer: 0
   m_Name: Car_Hyundai
   m_TagString: Car
@@ -101,7 +101,7 @@ MonoBehaviour:
   entityType: 
   hasCheckedIn: 0
   currentMovementState: 0
---- !u!54 &7830054210681728069
+--- !u!54 &2551312040686900536
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

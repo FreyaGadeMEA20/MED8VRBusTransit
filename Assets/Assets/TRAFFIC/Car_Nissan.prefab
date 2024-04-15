@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9102523931841993844}
   - component: {fileID: 3234453362596711629}
   - component: {fileID: 2546500135950371011}
-  - component: {fileID: 263612924508749138}
+  - component: {fileID: 6125893095809317416}
   m_Layer: 0
   m_Name: Car_Nissan
   m_TagString: Car
@@ -101,7 +101,7 @@ MonoBehaviour:
   entityType: 
   hasCheckedIn: 0
   currentMovementState: 0
---- !u!54 &263612924508749138
+--- !u!54 &6125893095809317416
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

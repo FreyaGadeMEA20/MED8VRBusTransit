@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1498769383090872743}
   - component: {fileID: 7392568381795924828}
   - component: {fileID: 7462888346155488741}
-  - component: {fileID: 8980869654549561741}
+  - component: {fileID: -6262508253536058473}
   m_Layer: 0
   m_Name: Car_Kia
   m_TagString: Car
@@ -101,7 +101,7 @@ MonoBehaviour:
   entityType: 
   hasCheckedIn: 0
   currentMovementState: 0
---- !u!54 &8980869654549561741
+--- !u!54 &-6262508253536058473
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

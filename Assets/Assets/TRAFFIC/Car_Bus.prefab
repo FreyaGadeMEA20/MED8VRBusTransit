@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8745132871718888041}
   - component: {fileID: 8678030117966284089}
   - component: {fileID: 2154855490858179161}
-  - component: {fileID: 7383375273593727243}
+  - component: {fileID: -8341425968900055495}
   m_Layer: 6
   m_Name: Car_Bus
   m_TagString: Car
@@ -101,7 +101,7 @@ MonoBehaviour:
   entityType: 
   hasCheckedIn: 0
   currentMovementState: 0
---- !u!54 &7383375273593727243
+--- !u!54 &-8341425968900055495
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
