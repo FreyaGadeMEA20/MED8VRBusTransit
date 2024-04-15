@@ -27,6 +27,7 @@ public class BusGameManager : MonoBehaviour
     [SerializeField] BusCheckInScript BusScript;
 
     [SerializeField] CarSpawner carSpawer;
+    [SerializeField] FadeScreen screenFader;
 
     private bool hasCheckedIn{
         get{return HasCheckedIn;}
@@ -39,6 +40,7 @@ public class BusGameManager : MonoBehaviour
     {
         // Set the initial state
         currentState = GameState.SCHOOL;
+        screenFader.FadeOut();
     }
 
     // Update is called once per frame
@@ -162,6 +164,8 @@ public class BusGameManager : MonoBehaviour
             WaypointMover wp = GameObject.FindWithTag("Bus").transform.parent.gameObject.GetComponent<WaypointMover>();
 
             wp.hasCheckedIn = true;
+
+            screenFader.FadeOut();
         }
     }
 
