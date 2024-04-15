@@ -181,7 +181,7 @@ public class WaypointMover : MonoBehaviour
         // Check for overlaps with other colliders
         Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward * safeDistance, safeDistance);
         foreach (var collider in colliders){
-            if (collider.CompareTag("Car")){
+            if (collider.CompareTag("Car") || collider.CompareTag("Player")){
                 Debug.Log("Car detected");
                 canMove = false;
                 return;
