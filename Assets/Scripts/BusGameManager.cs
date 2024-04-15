@@ -14,7 +14,7 @@ public class BusGameManager : MonoBehaviour
     }
 
     // Current state of the game
-    private GameState currentState;
+    [SerializeField] GameState currentState;
 
     // -- Objects for checking states -- //
     public GameObject phone;
@@ -25,6 +25,8 @@ public class BusGameManager : MonoBehaviour
     [SerializeField] ProxCheckerScript SignScript;
     [SerializeField] ProxCheckerScript BusStopScript;
     [SerializeField] BusCheckInScript BusScript;
+
+    [SerializeField] CarSpawner carSpawer;
 
     private bool hasCheckedIn{
         get{return HasCheckedIn;}
@@ -133,6 +135,7 @@ public class BusGameManager : MonoBehaviour
                     // Countdown finished, do something
                     Debug.Log("Countdown finished");
                     currentState = GameState.BUS;
+                    carSpawer.canSpawnBus = true;
                     // Reset the countdown timer
                     //countdownTimer = 3f;
                     isCountingDown = false;
@@ -151,9 +154,14 @@ public class BusGameManager : MonoBehaviour
     }
     
     void UpdateBusState(){
+        if (!carSpawer.canSpawnBus)
+            carSpawer.canSpawnBus = true;
+
         if(hasCheckedIn)
         {
-            Debug.Log("Game finished");
+            WaypointMover wp = GameObject.FindWithTag("Bus").transform.parent.gameObject.GetComponent<WaypointMover>();
+
+            wp.hasCheckedIn = true;
         }
     }
 
