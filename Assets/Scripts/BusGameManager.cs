@@ -40,6 +40,11 @@ public class BusGameManager : MonoBehaviour
     {
         // Set the initial state
         currentState = GameState.SCHOOL;
+        //StartCoroutine(fade());
+    }
+
+    private IEnumerator fade(){
+        yield return new WaitForSeconds(1);
         screenFader.FadeOut();
     }
 
@@ -165,7 +170,7 @@ public class BusGameManager : MonoBehaviour
 
             wp.hasCheckedIn = true;
 
-            screenFader.FadeOut();
+            //screenFader.FadeOut();
         }
     }
 

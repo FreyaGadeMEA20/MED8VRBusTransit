@@ -7,6 +7,8 @@ TagManager:
   - Skolekort
   - Car
   - Bus
+  - TeleportArea
+  - BusFloor
   layers:
   - Default
   - TransparentFX

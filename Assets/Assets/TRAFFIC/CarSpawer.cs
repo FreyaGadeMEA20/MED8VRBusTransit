@@ -120,6 +120,10 @@ public class CarSpawner : MonoBehaviour
 
         WaypointMover waypointMover = newBus.GetComponent<WaypointMover>();
         waypointMover.entityType = "Bus";
+/* 
+        TeleportationArea TP = GameObject.FindWithTag("TeleportArea").GetComponent<TeleportationArea>();
+        MeshCollider busFloor = GameObject.FindWithTag("BusFloor").GetComponent<MeshCollider>();
+        TP.collider[1] = busFloor; */
 
         if (waypointMover != null){
             waypointMover.waypoints = waypoints;

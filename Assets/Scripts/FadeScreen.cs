@@ -8,7 +8,7 @@ public class FadeScreen : MonoBehaviour
     public Color fadeColor;
     private Material material;
 
-    void Start()
+    void Awake()
     {
         Renderer rend = GetComponent<Renderer>();
         material = rend.material;
@@ -32,6 +32,7 @@ public class FadeScreen : MonoBehaviour
     IEnumerator FadeRoutine(float alphaIn, float alphaOut)
     {
         float t = 0;
+        Debug.Log(material.color);
         while (t < fadeDuration)
         {
             Color newColor = fadeColor;
