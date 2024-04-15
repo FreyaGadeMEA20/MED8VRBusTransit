@@ -21,9 +21,11 @@ public class BusGameManager : MonoBehaviour
     //public GameObject signArea;
     //public CheckIn checkIn;
     //public TransportScript bus;
-
+    
     [SerializeField] ProxCheckerScript SignScript;
+    [SerializeField] GameObject SignBeam;
     [SerializeField] ProxCheckerScript BusStopScript;
+    [SerializeField] GameObject StopBeam;
     [SerializeField] BusCheckInScript BusScript;
 
     [SerializeField] CarSpawner carSpawer;
@@ -92,6 +94,7 @@ public class BusGameManager : MonoBehaviour
                     // Countdown finished, do something
                     Debug.Log("Countdown finished");
                     currentState = GameState.PHONE;
+                    SignBeam.SetActive(true);
                     // Reset the countdown timer
                     //countdownTimer = 3f;
                     isCountingDown = false;
@@ -115,6 +118,8 @@ public class BusGameManager : MonoBehaviour
                     // Countdown finished, do something
                     Debug.Log("Countdown finished");
                     currentState = GameState.SIGN;
+                    SignBeam.SetActive(false);
+                    StopBeam.SetActive(true);
                     // Reset the countdown timer
                     //countdownTimer = 3f;
                     isCountingDown = false;
@@ -168,7 +173,7 @@ public class BusGameManager : MonoBehaviour
         {
             WaypointMover wp = GameObject.FindWithTag("Bus").transform.parent.gameObject.GetComponent<WaypointMover>();
 
-            wp.hasCheckedIn = true;
+            //wp.hasCheckedIn = true;
 
             //screenFader.FadeOut();
         }
