@@ -746,6 +746,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 549560300548022183, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1304074345}
     - targetCorrespondingSourceObject: {fileID: 2614876944411184457, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
       insertIndex: 2
       addedObject: {fileID: 1272547840}
@@ -780,6 +783,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4758013896070913966, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 441973005}
+    - targetCorrespondingSourceObject: {fileID: 7836324810851660135, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1463291927}
+    - targetCorrespondingSourceObject: {fileID: 7836324810851660135, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1463291926}
   m_SourcePrefab: {fileID: 100100000, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
 --- !u!1 &331257378 stripped
 GameObject:
@@ -984,6 +993,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
+--- !u!4 &331257393 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 549560300548022183, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+  m_PrefabInstance: {fileID: 331257377}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &396849882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,6 +1111,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 331257380}
     m_Modifications:
+    - target: {fileID: 2761784063978902503, guid: c1800acf6366418a9b5f610249000331, type: 3}
+      propertyPath: m_UseForceGrab
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2761784063978902503, guid: c1800acf6366418a9b5f610249000331, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 434186019}
+    - target: {fileID: 2761784063978902503, guid: c1800acf6366418a9b5f610249000331, type: 3}
+      propertyPath: m_RaycastMask.m_Bits
+      value: 2147483745
+      objectReference: {fileID: 0}
+    - target: {fileID: 2761784063978902503, guid: c1800acf6366418a9b5f610249000331, type: 3}
+      propertyPath: m_EnableUIInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2761784063978902503, guid: c1800acf6366418a9b5f610249000331, type: 3}
+      propertyPath: m_SelectActionTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2761784063978902505, guid: c1800acf6366418a9b5f610249000331, type: 3}
+      propertyPath: m_Reticle
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2761784063978902505, guid: c1800acf6366418a9b5f610249000331, type: 3}
+      propertyPath: m_BlockedReticle
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2761784063978902506, guid: c1800acf6366418a9b5f610249000331, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1140,6 +1182,10 @@ PrefabInstance:
     - target: {fileID: 2761784063978902507, guid: c1800acf6366418a9b5f610249000331, type: 3}
       propertyPath: m_Name
       value: Teleport Interactor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2761784063978902507, guid: c1800acf6366418a9b5f610249000331, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1265,6 +1311,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &783298133 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2761784063978902503, guid: c1800acf6366418a9b5f610249000331, type: 3}
+  m_PrefabInstance: {fileID: 399398798}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1176453815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1636,6 +1693,102 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3535473601529558972, guid: 9c993bdd1f0fb3e4da5b61dabec5fbb3, type: 3}
   m_PrefabInstance: {fileID: 1272547839}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1304074344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1304074345}
+  - component: {fileID: 1304074346}
+  m_Layer: 0
+  m_Name: Locomotion System
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1304074345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304074344}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 331257393}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1304074346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304074344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8693da5968f47244bc8d0c1e723ef43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionAsset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  rayInteractor: {fileID: 783298133}
+  provider: {fileID: 331257386}
+--- !u!1 &1463291919 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7836324810851660135, guid: c5f0cc78f014aac45bbc22f2d76788a6, type: 3}
+  m_PrefabInstance: {fileID: 331257377}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1463291926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463291919}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4a50d88b55b45648927679791f472de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GroupName: 
+  m_InteractionManager: {fileID: 0}
+  m_StartingGroupMembers: []
+  m_StartingInteractionOverridesMap: []
+--- !u!114 &1463291927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463291919}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ac216f0eb04754b1d938aac6380b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ManipulationInteractionGroup: {fileID: 1463291926}
+  m_DirectInteractor: {fileID: 0}
+  m_RayInteractor: {fileID: 783298133}
+  m_TeleportInteractor: {fileID: 783298133}
+  m_TeleportModeActivate: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_TeleportModeCancel: {fileID: 2307464322626738743, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_Turn: {fileID: 0}
+  m_SnapTurn: {fileID: 0}
+  m_Move: {fileID: 0}
+  m_UIScroll: {fileID: 0}
+  m_SmoothMotionEnabled: 0
+  m_SmoothTurnEnabled: 0
+  m_UIScrollingEnabled: 0
+  m_RayInteractorChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1468083587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,7 +1868,7 @@ GameObject:
   - component: {fileID: 1510176757}
   - component: {fileID: 1510176759}
   - component: {fileID: 1510176758}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sign Proximity Checker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1808,6 +1961,7 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 434186019}
   m_Colliders:
   - {fileID: 1529386316}
+  - {fileID: 1742263919}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1947,7 +2101,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742263917}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38f6bf3d943ac7945842268c9ef1dca6, type: 3}
   m_Name: 
@@ -2149,7 +2303,7 @@ GameObject:
   - component: {fileID: 1848511642}
   - component: {fileID: 1848511644}
   - component: {fileID: 1848511643}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bus Proximity Checker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
