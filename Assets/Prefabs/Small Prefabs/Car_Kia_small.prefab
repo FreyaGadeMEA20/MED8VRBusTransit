@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2385784961944252255}
-  - component: {fileID: 1498769383090872743}
   - component: {fileID: 7392568381795924828}
   - component: {fileID: 7462888346155488741}
-  - component: {fileID: -6262508253536058473}
+  - component: {fileID: 4796281134777091674}
+  - component: {fileID: 3469158520969740176}
   m_Layer: 0
   m_Name: Car_Kia_small
   m_TagString: Car
@@ -36,27 +36,6 @@ Transform:
   - {fileID: 3963093688927027384}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1498769383090872743
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9175130481727050268}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 2}
 --- !u!65 &7392568381795924828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -101,7 +80,28 @@ MonoBehaviour:
   entityType: 
   hasCheckedIn: 0
   currentMovementState: 0
---- !u!54 &-6262508253536058473
+--- !u!135 &4796281134777091674
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9175130481727050268}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 1, z: 2}
+--- !u!54 &3469158520969740176
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,9 +124,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1001 &3563761049749153619
 PrefabInstance:
@@ -179,6 +179,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f2d4963f38fc5cb409e4ad11aba75d9c, type: 3}
       propertyPath: m_Name
       value: KIA_Sportage
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2d4963f38fc5cb409e4ad11aba75d9c, type: 3}
+      propertyPath: m_TagString
+      value: Car
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

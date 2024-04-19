@@ -69,7 +69,7 @@ public class WaypointMover : MonoBehaviour
 
         // Set the current waypoint to the first waypoint in the list
         currentWaypoint = waypoints.routes[carSpawner.routeIndex].waypoints[0];
-        Debug.Log("Current waypoint: " + currentWaypoint.position);
+        //Debug.Log("Current waypoint: " + currentWaypoint.position);
 
         // Set the current waypoint to the first waypoint in the list
         //currentWaypoint = waypoints.GetNextWaypoint(currentWaypoint);
@@ -192,7 +192,11 @@ public class WaypointMover : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){
+        Debug.Log("Object entered trigger");
+
         if (other.CompareTag("Car")){
+            Debug.Log("Car entered");
+                
             // Check if car is in front of the object
             Vector3 direction = other.transform.position - transform.position;
             float dotProduct = Vector3.Dot(direction, transform.forward);
@@ -204,14 +208,17 @@ public class WaypointMover : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other){
+        Debug.Log("Object exited trigger");
+        
         if (other.CompareTag("Car")){
+            Debug.Log("Car exited");
             canMove = true;
         }
     }
 
-    private void OnDrawGizmos(){
+/*     private void OnDrawGizmos(){
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position + transform.forward * safeDistance, safeDistance);
-    }
+    } */
 }
 

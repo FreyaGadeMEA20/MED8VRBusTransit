@@ -2307,7 +2307,7 @@ GameObject:
   - component: {fileID: -1948107393492139474}
   - component: {fileID: 3180045749670647010}
   - component: {fileID: 8934084248644710605}
-  - component: {fileID: -1570834882084108913}
+  - component: {fileID: -1652454558506420233}
   m_Layer: 0
   m_Name: Bus_small
   m_TagString: Car
@@ -2374,7 +2374,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2408,7 +2408,7 @@ MonoBehaviour:
   entityType: 
   hasCheckedIn: 0
   currentMovementState: 0
---- !u!54 &-1570834882084108913
+--- !u!54 &-1652454558506420233
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2431,9 +2431,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &7563525907265116954
 GameObject:

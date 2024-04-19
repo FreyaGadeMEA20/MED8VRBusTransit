@@ -86,23 +86,23 @@ public class CarSpawner : MonoBehaviour
         //yield return new WaitForSeconds(Random.Range(spawnIntervalMin, spawnIntervalMax));
 
         routeIndex = Random.Range(0, waypoints.routes.Count);
-        Debug.Log("Chosen Route Index assigned to car: " + routeIndex);
+        //Debug.Log("Chosen Route Index assigned to car: " + routeIndex);
 
         Transform startWaypoint = waypoints.routes[routeIndex].waypoints[0];
-        Debug.Log("Start Waypoint: " + startWaypoint.name);
+        //Debug.Log("Start Waypoint: " + startWaypoint.name);
 
         // Select a random prefab from the carPrefabs array
         GameObject carPrefab = carPrefabs[Random.Range(0, carPrefabs.Length)];
 
         GameObject newCar = Instantiate(carPrefab, startWaypoint.position, startWaypoint.rotation);
-        Debug.Log("Car Spawned: " + newCar.name + " at " + startWaypoint.position + " with index " + routeIndex);
+        //Debug.Log("Car Spawned: " + newCar.name + " at " + startWaypoint.position + " with index " + routeIndex);
 
         WaypointMover waypointMover = newCar.GetComponent<WaypointMover>();
         waypointMover.entityType = "Car";
 
         if (waypointMover != null){
             waypointMover.waypoints = waypoints;
-            Debug.Log("waypointMover Waypoints assigned to car: " + waypoints.name);
+            //Debug.Log("waypointMover Waypoints assigned to car: " + waypoints.name);
             //waypointMover.SetRouteIndex(routeIndex);
             //Debug.Log("waypointMover Route index assigned to car: " + routeIndex);
         }
