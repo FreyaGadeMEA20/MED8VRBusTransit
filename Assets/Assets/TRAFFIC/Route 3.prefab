@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWaitingPoint: 0
+  isBusStop: 0
   waitingTime: 5
 --- !u!1 &3985913249010680678
 GameObject:
@@ -91,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWaitingPoint: 0
+  isBusStop: 0
   waitingTime: 5
 --- !u!1 &4306751706843786824
 GameObject:
@@ -137,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWaitingPoint: 0
+  isBusStop: 0
   waitingTime: 5
 --- !u!1 &5726814916895080099
 GameObject:
@@ -183,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWaitingPoint: 0
+  isBusStop: 0
   waitingTime: 5
 --- !u!1 &5879048603784857040
 GameObject:
@@ -266,6 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWaitingPoint: 1
+  isBusStop: 0
   waitingTime: 2
 --- !u!1 &6920544222715153241
 GameObject:
@@ -312,4 +317,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWaitingPoint: 0
+  isBusStop: 0
   waitingTime: 5

@@ -40,6 +40,15 @@ public class WaypointMover : MonoBehaviour
                 case MovementState.Waiting:
                     carSpawner.doSpawnCars = false;
 
+                    // Let the cars go again when the waypoint is no longer a waiting point
+                    if (entityType == "Car" && waypointClass.isWaitingPoint == true){
+                        //Debug.Log("SM Waiting point: "+ currentWaypoint.name);
+                        yield return new WaitUntil(() => waypointClass.isWaitingPoint == false);
+                        //Debug.Log("Car is no longer at a waiting point");
+                        currentMovementState = MovementState.Moving;
+                        break;
+                    }
+
                     yield return new WaitUntil(() => hasCheckedIn == true);
                     Debug.Log("Bus has checked in");
 
@@ -100,38 +109,6 @@ public class WaypointMover : MonoBehaviour
     }
     
     private void MoveTowardsWaypoint(){
-         /* while(true){
-            waypointClass = currentWaypoint.GetComponent<WaypointClass>();
-
-            // If the we are not looping and have reached the last waypoint, destroy the object
-            if (waypoints.doLoop == false && currentWaypoint == null){
-                Destroy(gameObject);
-                //yield break;
-            }
-
-            if (canMove){
-                // Move the object towards the current waypoint
-                transform.position = Vector3.MoveTowards(transform.position, currentWaypoint.position, moveSpeed * Time.deltaTime);
-
-                // If the object has reached the current waypoint, set the current waypoint to the next waypoint
-                if (transform.position == currentWaypoint.position){
-                    /* if (waypointClass.isWaitingPoint){
-                        yield return new WaitForSeconds(waypointClass.waitingTime);
-                    }
-
-                    if (entityType == "Bus" && waypointClass.isWaitingPoint){  
-                        //yield return new WaitUntil(() => hasCheckedIn == true);
-                        // yield return new WaitForSeconds(waypointClass.waitingTime);
-                    }
-
-                    // set the current waypoint to the next waypoint
-                    currentWaypoint = waypoints.GetNextWaypoint(currentWaypoint, carSpawner.routeIndex);
-                }
-            }
-
-            //yield return null;
-        } */
-
         if (canMove){
             // Destroy vehicle if there is no waypoints left
             if (waypoints.doLoop == false && currentWaypoint == null){
@@ -151,33 +128,28 @@ public class WaypointMover : MonoBehaviour
             if (distanceToPoint <= 0.1f){
                 waypointClass = currentWaypoint.GetComponent<WaypointClass>();
 
+                //Debug.Log("Waiting point: "+ currentWaypoint.name);
+
                 currentWaypoint = waypoints.GetNextWaypoint(currentWaypoint, carSpawner.routeIndex);
 
-                // If we are at a waiting waypoint, wait
-                if (waypointClass.isWaitingPoint && entityType == "Bus"){
+                // If the bus is at the bus stop, wait
+                if (waypointClass.isBusStop && entityType == "Bus"){
                     currentMovementState = MovementState.Waiting;
                 }
+
+                // if a car is at a waiting point, wait
+                if (waypointClass.isWaitingPoint && entityType == "Car"){
+                    //Debug.Log("Car is at a waiting point, waiting...");
+                    //Debug.Log("WAITING Waiting point: "+ currentWaypoint.name);
+                    currentMovementState = MovementState.Waiting;
+                }
+
             }
         }
 
     }
 
     private void CheckIfCanMove(){
-/*         // Draw the ray
-        Debug.DrawRay(transform.position, transform.forward * safeDistance, Color.red);
-
-        // Check if object is close to antoher object with "car" as tag
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, safeDistance)){
-            if (hit.collider.tag == "Car"){
-                canMove = false;
-            }
-        }
-        
-        else {
-            canMove = true;
-        } */
-
         // Check for overlaps with other colliders
         Collider[] colliders = Physics.OverlapSphere(transform.position + transform.forward * safeDistance, safeDistance);
         foreach (var collider in colliders){
@@ -192,10 +164,10 @@ public class WaypointMover : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){
-        Debug.Log("Object entered trigger");
+        //Debug.Log("Object entered trigger");
 
         if (other.CompareTag("Car")){
-            Debug.Log("Car entered");
+            //Debug.Log("Car entered");
                 
             // Check if car is in front of the object
             Vector3 direction = other.transform.position - transform.position;
@@ -208,10 +180,10 @@ public class WaypointMover : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other){
-        Debug.Log("Object exited trigger");
+        //Debug.Log("Object exited trigger");
         
         if (other.CompareTag("Car")){
-            Debug.Log("Car exited");
+            //Debug.Log("Car exited");
             canMove = true;
         }
     }
