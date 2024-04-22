@@ -34,12 +34,12 @@ public class WaypointMover : MonoBehaviour
         while(true){
             switch (currentMovementState){
                 case MovementState.Moving:
+                    carSpawner.doSpawnCars = true;
                     MoveTowardsWaypoint();
                     break;
 
                 case MovementState.Waiting:
                     carSpawner.doSpawnCars = false;
-
                     // Let the cars go again when the waypoint is no longer a waiting point
                     if (entityType == "Car" && waypointClass.isWaitingPoint == true){
                         //Debug.Log("SM Waiting point: "+ currentWaypoint.name);
