@@ -31,8 +31,6 @@ public class BusGameManager : MonoBehaviour
     [SerializeField] CarSpawner carSpawer;
     [SerializeField] FadeScreen screenFader;
 
-    [SerializeField] GameObject waypointWaitingAtSignObject;
-
     private bool hasCheckedIn{
         get{return HasCheckedIn;}
         set{HasCheckedIn = value;}
@@ -167,10 +165,6 @@ public class BusGameManager : MonoBehaviour
         }
 
         // Set the car waypoint at the crosswalk to 'waiting' so the player can cross safely
-        if (waypointWaitingAtSignObject != null)
-        {
-            waypointWaitingAtSignObject.GetComponent<WaypointClass>().isWaitingPoint = true;
-        }
     }
     
     void UpdateBusState(){
@@ -187,10 +181,6 @@ public class BusGameManager : MonoBehaviour
         }
 
         // Let the cars move again from the sign as the player has crossed the street
-        if (waypointWaitingAtSignObject != null)
-        {
-            waypointWaitingAtSignObject.GetComponent<WaypointClass>().isWaitingPoint = false;
-        }
     }
 
     

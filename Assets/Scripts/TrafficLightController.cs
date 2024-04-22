@@ -26,6 +26,7 @@ public class TrafficLightController : MonoBehaviour
     }
 
     public TrafficLight[] lights;
+    [SerializeField] GameObject wayPointWait;
     
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,12 @@ public class TrafficLightController : MonoBehaviour
                 yield return new WaitForSeconds(2f);
                 TurnOffLights(light.yellowLights);
                 TurnOnLights(light.redLights);
+
+                if (wayPointWait != null)
+                {
+                    wayPointWait.GetComponent<WaypointClass>().isWaitingPoint = false;
+                }
+
                 yield return new WaitForSeconds(light.timeBeforeSwitch);
                 StartTrafficLight();
                 SwitchTrafficLightState();
@@ -53,6 +60,12 @@ public class TrafficLightController : MonoBehaviour
                 TurnOffLights(light.redLights);
                 TurnOffLights(light.yellowLights);
                 TurnOnLights(light.greenLights);
+
+                if (wayPointWait != null)
+                {
+                    wayPointWait.GetComponent<WaypointClass>().isWaitingPoint = true;
+                }
+
                 yield return new WaitForSeconds(light.timeBeforeSwitch);
                 break;
         }
