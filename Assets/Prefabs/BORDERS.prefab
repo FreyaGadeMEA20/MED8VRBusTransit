@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 274990511208020031}
   - component: {fileID: 4885548349338530669}
   - component: {fileID: 4843188536245438409}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PolyShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5016
+  m_VersionIndex: 5019
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4697
+  m_VersionIndex: 4700
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1201,7 +1201,7 @@ GameObject:
   - component: {fileID: 6267370132660360299}
   - component: {fileID: 1703736060822823460}
   - component: {fileID: 3421831483481603666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PolyShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1657,7 +1657,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3169
+  m_VersionIndex: 3172
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2083,7 +2083,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1337
+  m_VersionIndex: 1340
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2197,7 +2197,7 @@ GameObject:
   - component: {fileID: 1333863400981098164}
   - component: {fileID: 6943961213423967222}
   - component: {fileID: 5805891464222295534}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PolyShape (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2653,7 +2653,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5020
+  m_VersionIndex: 5023
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4856,7 +4856,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 54455
+  m_VersionIndex: 54458
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5525,7 +5525,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4689
+  m_VersionIndex: 4692
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5657,7 +5657,7 @@ GameObject:
   - component: {fileID: 8291609079802156322}
   - component: {fileID: 7197582708875948335}
   - component: {fileID: 2472557210557162243}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PolyShape (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6113,7 +6113,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3185
+  m_VersionIndex: 3188
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
