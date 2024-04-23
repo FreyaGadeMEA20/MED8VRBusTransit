@@ -170,7 +170,7 @@ public class BusGameManager : MonoBehaviour
         {
             WaypointMover wp = GameObject.FindWithTag("Bus").transform.parent.gameObject.GetComponent<WaypointMover>();
 
-            StartCoroutine(screenFader.FadeOutAndReloadScene());
+            //StartCoroutine(screenFader.FadeOutAndReloadScene());
             //wp.hasCheckedIn = true;
 
             //screenFader.FadeOut();

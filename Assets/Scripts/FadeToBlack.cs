@@ -7,14 +7,14 @@ using UnityEngine.SceneManagement;
 public class FadeToBlack : MonoBehaviour
 {
     public float fadeDuration = 2.0f; // Duration of the fade in seconds
-    [SerializeField] Image fadeImage;
+    [SerializeField] Material fadeImage;
     private CanvasGroup canvasGroup;
 
     private void Start()
     {
         //fadeImage = GetComponent<Image>();
         //canvasGroup = GetComponent<CanvasGroup>();
-        StartCoroutine(FadeIn());
+        //StartCoroutine(FadeIn());
     }
 
     public IEnumerator FadeOutAndReloadScene()
