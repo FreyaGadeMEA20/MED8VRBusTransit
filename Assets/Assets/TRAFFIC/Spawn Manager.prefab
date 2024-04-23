@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &197635470177285242
 Transform:
@@ -49,7 +49,15 @@ MonoBehaviour:
   - {fileID: 5292738344939402828, guid: 77e4a46599b0a684ba83c67846c890e4, type: 3}
   - {fileID: 9175130481727050268, guid: 724f64a8a05abd646a7526fc2cd0b99e, type: 3}
   - {fileID: 9183089006378784242, guid: deec6672bd056bb49b12aee289bdd9da, type: 3}
-  busPrefab: {fileID: 883575484136465860, guid: 7059872f78b001b48a2876589e10f8b6, type: 3}
+  - {fileID: 2337237763980227453, guid: 2e7861ae5053d994ba4207dad8289e11, type: 3}
+  - {fileID: 2337237763980227453, guid: f62a0c02e8f4e9c44ab624238cf01ae4, type: 3}
+  - {fileID: 5292738344939402828, guid: a1a249a538414584f8d727e74345c1ff, type: 3}
+  - {fileID: 5292738344939402828, guid: fe2a6b38206425045a724d9a2b18dd04, type: 3}
+  - {fileID: 9175130481727050268, guid: bc9b07d0ab2d0564f9a35926a9d8a50a, type: 3}
+  - {fileID: 9175130481727050268, guid: 8441da9f7b41d9646be4c1720609735d, type: 3}
+  - {fileID: 9183089006378784242, guid: c40b296c6e359544e91760096cf24375, type: 3}
+  - {fileID: 9183089006378784242, guid: 84e785ef0cb62d64bb6ef3120dfcf167, type: 3}
+  busPrefab: {fileID: 7407063518324850902, guid: 8971ca091f41b1b43876ea2d8ba3c7b1, type: 3}
   waypoints: {fileID: 0}
   spawnIntervalMin: 1
   spawnIntervalMax: 3
@@ -57,4 +65,7 @@ MonoBehaviour:
   busSpawnDelay: 3
   busRouteIndex: 0
   hasSpawnedBus: 0
+  canSpawnBus: 0
   doSpawnCars: 1
+  maxActiveCars: 15
+  currentActiveCars: 0
