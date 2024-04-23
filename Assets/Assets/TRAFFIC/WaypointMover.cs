@@ -29,11 +29,14 @@ public class WaypointMover : MonoBehaviour
     }
 
     [SerializeField] private MovementState currentMovementState;
+    Rigidbody rb;
+
 
     private IEnumerator MovementSM(){
         while(true){
             switch (currentMovementState){
                 case MovementState.Moving:
+                    rb.constraints = RigidbodyConstraints.FreezePositionY & RigidbodyConstraints.FreezeRotationX & RigidbodyConstraints.FreezeRotationZ;
                     carSpawner.doSpawnCars = true;
                     MoveTowardsWaypoint();
                     break;
@@ -67,6 +70,9 @@ public class WaypointMover : MonoBehaviour
     void Start(){
         waypoints = GameObject.Find("Waypoints").GetComponent<Waypoints>();
         carSpawner = GameObject.Find("Spawn Manager").GetComponent<CarSpawner>();
+
+        rb = GetComponent<Rigidbody>();
+
 
         if (carSpawner == null){
             Debug.LogWarning("CarSpawner component not found");
@@ -134,8 +140,9 @@ public class WaypointMover : MonoBehaviour
                 currentWaypoint = waypoints.GetNextWaypoint(currentWaypoint, carSpawner.routeIndex);
 
                 // If the bus is at the bus stop, wait
-                if ((waypointClass.isWaitingPoint || waypointClass.isBusStop) && entityType == "Bus"){
+                if (waypointClass.isBusStop && entityType == "Bus"){
                     currentMovementState = MovementState.Waiting;
+                    rb.constraints = RigidbodyConstraints.FreezePosition & RigidbodyConstraints.FreezeRotationX & RigidbodyConstraints.FreezeRotationZ;
                 }
 
                 // if a car is at a waiting point, wait
@@ -143,8 +150,9 @@ public class WaypointMover : MonoBehaviour
                     //Debug.Log("Car is at a waiting point, waiting...");
                     //Debug.Log("WAITING Waiting point: "+ currentWaypoint.name);
                     currentMovementState = MovementState.Waiting;
-                }
+                    rb.constraints = RigidbodyConstraints.FreezePosition & RigidbodyConstraints.FreezeRotationX & RigidbodyConstraints.FreezeRotationZ;
 
+                }
             }
         }
 
