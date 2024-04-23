@@ -69,11 +69,6 @@ public class TrafficLightController : MonoBehaviour
                 TurnOnLights(light.yellowLights);
 
                 yield return new WaitForSeconds(2f);
-                TurnOffLights(light.redLights);
-                TurnOffLights(light.yellowLights);
-                TurnOnLights(light.greenLights);
-
-
                 if (wayPointWait != null)
                 {
                     wayPointWait.GetComponent<WaypointClass>().isWaitingPoint = true;
@@ -84,7 +79,11 @@ public class TrafficLightController : MonoBehaviour
                     }
                 }
 
-                yield return new WaitForSeconds(light.timeBeforeSwitch);
+                TurnOffLights(light.redLights);
+                TurnOffLights(light.yellowLights);
+                TurnOnLights(light.greenLights);
+
+                //yield return new WaitForSeconds(light.timeBeforeSwitch);
                 break;
         }
         
