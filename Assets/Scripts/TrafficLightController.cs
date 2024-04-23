@@ -23,6 +23,8 @@ public class TrafficLightController : MonoBehaviour
         public GameObject[] redLights;
         public GameObject[] yellowLights;
         public GameObject[] greenLights;
+
+        public GameObject[] deathBoxes;
     }
 
     public TrafficLight[] lights;
@@ -50,6 +52,12 @@ public class TrafficLightController : MonoBehaviour
                     wayPointWait.GetComponent<WaypointClass>().isWaitingPoint = false;
                 }
 
+                if (light.deathBoxes != null){
+                    foreach (var deathBox in light.deathBoxes){
+                        deathBox.SetActive(true);
+                    }
+                }
+
                 yield return new WaitForSeconds(light.timeBeforeSwitch);
                 StartTrafficLight();
                 SwitchTrafficLightState();
@@ -64,6 +72,12 @@ public class TrafficLightController : MonoBehaviour
                 if (wayPointWait != null)
                 {
                     wayPointWait.GetComponent<WaypointClass>().isWaitingPoint = true;
+                }
+
+                if (light.deathBoxes != null){
+                    foreach (var deathBox in light.deathBoxes){
+                        deathBox.SetActive(false);
+                    }
                 }
 
                 yield return new WaitForSeconds(light.timeBeforeSwitch);
