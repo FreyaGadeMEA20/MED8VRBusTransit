@@ -27,7 +27,7 @@ public class BusGameManager : MonoBehaviour
     [SerializeField] ProxCheckerScript BusStopScript;
     [SerializeField] GameObject StopBeam;
     [SerializeField] CarSpawner carSpawer;
-
+    [SerializeField] GameObject busDeath;
     private bool hasCheckedIn{
         get{return HasCheckedIn;}
         set{HasCheckedIn = value;}
@@ -140,6 +140,8 @@ public class BusGameManager : MonoBehaviour
                     Debug.Log("Countdown finished");
                     currentState = GameState.BUS;
                     carSpawer.canSpawnBus = true;
+
+                    busDeath.SetActive(false);
                     // Reset the countdown timer
                     //countdownTimer = 3f;
                     isCountingDown = false;
