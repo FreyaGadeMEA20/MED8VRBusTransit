@@ -47,11 +47,13 @@ public class TrafficLightController : MonoBehaviour
                 TurnOffLights(light.yellowLights);
                 TurnOnLights(light.redLights);
 
+
+                yield return new WaitForSeconds(2f);
+
                 if (wayPointWait != null)
                 {
                     wayPointWait.GetComponent<WaypointClass>().isWaitingPoint = false;
                 }
-
                 if (light.deathBoxes != null){
                     foreach (var deathBox in light.deathBoxes){
                         deathBox.SetActive(true);
@@ -61,18 +63,20 @@ public class TrafficLightController : MonoBehaviour
                 yield return new WaitForSeconds(light.timeBeforeSwitch);
                 StartTrafficLight();
                 SwitchTrafficLightState();
+
                 break;
             case LightStates.Green:
                 TurnOnLights(light.yellowLights);
+                if (wayPointWait != null)
+                {
+                    wayPointWait.GetComponent<WaypointClass>().isWaitingPoint = true;
+                }
+                
                 yield return new WaitForSeconds(2f);
                 TurnOffLights(light.redLights);
                 TurnOffLights(light.yellowLights);
                 TurnOnLights(light.greenLights);
 
-                if (wayPointWait != null)
-                {
-                    wayPointWait.GetComponent<WaypointClass>().isWaitingPoint = true;
-                }
 
                 if (light.deathBoxes != null){
                     foreach (var deathBox in light.deathBoxes){
