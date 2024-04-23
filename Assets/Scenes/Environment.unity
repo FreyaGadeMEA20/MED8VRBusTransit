@@ -2843,7 +2843,7 @@ GameObject:
   - component: {fileID: 149168464}
   - component: {fileID: 149168463}
   - component: {fileID: 149168469}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PolyShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37400,7 +37400,7 @@ GameObject:
   - component: {fileID: 1878051006}
   - component: {fileID: 1878051005}
   - component: {fileID: 1878051011}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PolyShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
