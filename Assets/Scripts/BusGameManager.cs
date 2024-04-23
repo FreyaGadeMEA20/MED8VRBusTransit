@@ -26,10 +26,7 @@ public class BusGameManager : MonoBehaviour
     [SerializeField] GameObject SignBeam;
     [SerializeField] ProxCheckerScript BusStopScript;
     [SerializeField] GameObject StopBeam;
-    [SerializeField] BusCheckInScript BusScript;
-
     [SerializeField] CarSpawner carSpawer;
-    [SerializeField] FadeToBlack screenFader;
 
     private bool hasCheckedIn{
         get{return HasCheckedIn;}
@@ -179,9 +176,9 @@ public class BusGameManager : MonoBehaviour
         // Let the cars move again from the sign as the player has crossed the street
     }
 
-    public void FadeOutRL(){
-        StartCoroutine(screenFader.FadeOutAndReloadScene());
-    }
+    //public void FadeOutRL(){
+    //    StartCoroutine(screenFader.FadeOutAndReloadScene());
+    //}
 
     
     bool IsGameObjectVisibleInViewport(GameObject gameObject)

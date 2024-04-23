@@ -8,8 +8,7 @@ public class FadeToBlack : MonoBehaviour
 {
     public float fadeDuration = 2.0f; // Duration of the fade in seconds
     [SerializeField] Material fadeImage;
-    private CanvasGroup canvasGroup;
-
+   
     private void Start()
     {
         //fadeImage = GetComponent<Image>();

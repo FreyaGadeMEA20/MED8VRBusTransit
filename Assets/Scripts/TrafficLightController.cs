@@ -25,10 +25,10 @@ public class TrafficLightController : MonoBehaviour
         public GameObject[] greenLights;
 
         public GameObject[] deathBoxes;
+        public GameObject wayPointWait;
     }
 
     public TrafficLight[] lights;
-    [SerializeField] GameObject wayPointWait;
     
     // Start is called before the first frame update
     void Start()
@@ -43,11 +43,11 @@ public class TrafficLightController : MonoBehaviour
             case LightStates.Red:
                 TurnOffLights(light.greenLights);
                 TurnOnLights(light.yellowLights);
-                if (wayPointWait != null)
+                if (light.wayPointWait != null)
                 {
-                    wayPointWait.GetComponent<WaypointClass>().isWaitingPoint = false;
+                    light.wayPointWait.GetComponent<WaypointClass>().isWaitingPoint = true;
                 }
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(2.5f);
                 TurnOffLights(light.yellowLights);
                 TurnOnLights(light.redLights);
 
@@ -69,9 +69,9 @@ public class TrafficLightController : MonoBehaviour
                 TurnOnLights(light.yellowLights);
 
                 yield return new WaitForSeconds(2f);
-                if (wayPointWait != null)
+                if (light.wayPointWait != null)
                 {
-                    wayPointWait.GetComponent<WaypointClass>().isWaitingPoint = true;
+                    light.wayPointWait.GetComponent<WaypointClass>().isWaitingPoint = false;
                 }
                 if (light.deathBoxes != null){
                     foreach (var deathBox in light.deathBoxes){
