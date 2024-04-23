@@ -19,6 +19,9 @@ public class CarSpawner : MonoBehaviour
 
     public bool doSpawnCars = true;
 
+    public int maxActiveCars = 15;
+    public int currentActiveCars = 0;
+
     float timeElapsed = 0f;
 
     private List<Transform> startWaypoints = new List<Transform>();
@@ -71,7 +74,9 @@ public class CarSpawner : MonoBehaviour
 
             else {
                 if (doSpawnCars){
-                    SpawnCar();
+                    if (currentActiveCars < maxActiveCars){
+                        SpawnCar();
+                    }
                 }
             }
 
@@ -111,6 +116,8 @@ public class CarSpawner : MonoBehaviour
             Debug.LogWarning("WaypointMover component not found");
         }
         //}
+
+        IncrementActiveCars();
     }
 
     private void SpawnBus(){
@@ -133,8 +140,15 @@ public class CarSpawner : MonoBehaviour
             Debug.LogWarning("WaypointMover component not found");
         }
     }
-}
 
+    public void IncrementActiveCars(){
+        currentActiveCars++;
+    }
+
+    public void DecrementActiveCars(){
+        currentActiveCars--;
+    }
+}
 
 // OLD
         /* // Infinite loop for continuously spawning cars
