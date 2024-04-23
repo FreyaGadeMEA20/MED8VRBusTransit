@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7392568381795924828}
   - component: {fileID: 7462888346155488741}
   - component: {fileID: -6262508253536058473}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Car_Kia 2
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -176,13 +176,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8325689553952117475, guid: f2d4963f38fc5cb409e4ad11aba75d9c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: f2d4963f38fc5cb409e4ad11aba75d9c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 507a82e40e73c7f408ed5c9fa012083d, type: 2}
+    - target: {fileID: -6136715244604635164, guid: f2d4963f38fc5cb409e4ad11aba75d9c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -3300277157058532812, guid: f2d4963f38fc5cb409e4ad11aba75d9c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -2193438276389046593, guid: f2d4963f38fc5cb409e4ad11aba75d9c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f2d4963f38fc5cb409e4ad11aba75d9c, type: 3}
       propertyPath: m_Name
       value: KIA_Sportage
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2d4963f38fc5cb409e4ad11aba75d9c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800320807437547829, guid: f2d4963f38fc5cb409e4ad11aba75d9c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560249284888929925, guid: f2d4963f38fc5cb409e4ad11aba75d9c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948458998355892771, guid: f2d4963f38fc5cb409e4ad11aba75d9c, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
