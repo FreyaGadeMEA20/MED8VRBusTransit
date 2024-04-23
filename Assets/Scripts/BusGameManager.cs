@@ -29,7 +29,7 @@ public class BusGameManager : MonoBehaviour
     [SerializeField] BusCheckInScript BusScript;
 
     [SerializeField] CarSpawner carSpawer;
-    [SerializeField] FadeScreen screenFader;
+    [SerializeField] FadeToBlack screenFader;
 
     private bool hasCheckedIn{
         get{return HasCheckedIn;}
@@ -43,11 +43,6 @@ public class BusGameManager : MonoBehaviour
         // Set the initial state
         currentState = GameState.SCHOOL;
         //StartCoroutine(fade());
-    }
-
-    private IEnumerator fade(){
-        yield return new WaitForSeconds(1);
-        screenFader.FadeOut();
     }
 
     // Update is called once per frame
@@ -175,12 +170,17 @@ public class BusGameManager : MonoBehaviour
         {
             WaypointMover wp = GameObject.FindWithTag("Bus").transform.parent.gameObject.GetComponent<WaypointMover>();
 
+            StartCoroutine(screenFader.FadeOutAndReloadScene());
             //wp.hasCheckedIn = true;
 
             //screenFader.FadeOut();
         }
 
         // Let the cars move again from the sign as the player has crossed the street
+    }
+
+    public void FadeOutRL(){
+        StartCoroutine(screenFader.FadeOutAndReloadScene());
     }
 
     
