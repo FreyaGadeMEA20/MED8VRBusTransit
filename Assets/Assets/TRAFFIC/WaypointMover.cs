@@ -134,7 +134,7 @@ public class WaypointMover : MonoBehaviour
                 currentWaypoint = waypoints.GetNextWaypoint(currentWaypoint, carSpawner.routeIndex);
 
                 // If the bus is at the bus stop, wait
-                if (waypointClass.isBusStop && entityType == "Bus"){
+                if ((waypointClass.isWaitingPoint || waypointClass.isBusStop) && entityType == "Bus"){
                     currentMovementState = MovementState.Waiting;
                 }
 
