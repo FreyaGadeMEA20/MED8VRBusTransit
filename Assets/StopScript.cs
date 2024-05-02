@@ -5,18 +5,10 @@ using UnityEngine;
 public class StopScript : MonoBehaviour
 {
     public BusScreenController busScreenController;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] BusGameManager busGameManager;
 
     public void StopButton(){
+        busGameManager.StopBus();
         busScreenController.ApplyStopTexture();
-    }
-
-    public void Reset(){
-
     }
 }

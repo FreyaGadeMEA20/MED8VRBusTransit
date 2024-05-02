@@ -9,13 +9,20 @@ public class WaypointMover : MonoBehaviour
     public Waypoints waypoints;
     public CarSpawner carSpawner;
     public WaypointClass waypointClass;
+
+    public BusGameManager busGameManager;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float safeDistance = 2f;
 
     private Transform currentWaypoint;
 
-    [SerializeField] private bool canMove = true;
+    [SerializeField] private bool canMove{
+        get{return CanMove;}
+        set{canMove = value;}
+    }
+
+    public bool CanMove = true;
 
     public int routeIndex;
 
@@ -37,12 +44,12 @@ public class WaypointMover : MonoBehaviour
             switch (currentMovementState){
                 case MovementState.Moving:
                     rb.constraints = RigidbodyConstraints.FreezePositionY & RigidbodyConstraints.FreezeRotationX & RigidbodyConstraints.FreezeRotationZ;
-                    carSpawner.doSpawnCars = true;
+                    //carSpawner.doSpawnCars = true;
                     MoveTowardsWaypoint();
                     break;
 
                 case MovementState.Waiting:
-                    carSpawner.doSpawnCars = false;
+                    //carSpawner.doSpawnCars = false;
                     // Let the cars go again when the waypoint is no longer a waiting point
                     if (entityType == "Car" && waypointClass.isWaitingPoint == true){
                         //Debug.Log("SM Waiting point: "+ currentWaypoint.name);
@@ -52,12 +59,17 @@ public class WaypointMover : MonoBehaviour
                         break;
                     }
 
+                    if(busGameManager.firstTime){
+                        busGameManager.firstTime = false;
+                    }
+
                     yield return new WaitUntil(() => hasCheckedIn == true);
                     Debug.Log("Bus has checked in");
+                    hasCheckedIn = false;
 
-                    yield return new WaitForSeconds(waypointClass.waitingTime);
+                    //yield return new WaitForSeconds(waypointClass.waitingTime);
 
-                    carSpawner.doSpawnCars = true;
+                    //carSpawner.doSpawnCars = true;
 
                     currentMovementState = MovementState.Moving;
                     break;
@@ -70,6 +82,11 @@ public class WaypointMover : MonoBehaviour
     void Start(){
         waypoints = GameObject.Find("Waypoints").GetComponent<Waypoints>();
         carSpawner = GameObject.Find("Spawn Manager").GetComponent<CarSpawner>();
+
+        busGameManager = GameObject.Find("GameManager").GetComponent<BusGameManager>();
+        busGameManager.GetWPM(this.GetComponent<WaypointMover>(), this.GetComponent<DoorController>());
+
+        StartCoroutine(GiveSelf());
 
         rb = GetComponent<Rigidbody>();
 
@@ -95,7 +112,10 @@ public class WaypointMover : MonoBehaviour
         StartCoroutine(MovementSM());
     }
 
+    IEnumerator GiveSelf(){
+        yield return new WaitForSeconds(1);
 
+    }
     void Update(){
         RotateTowardsWaypoint();
         //CheckIfCanMove();
@@ -140,7 +160,12 @@ public class WaypointMover : MonoBehaviour
                 currentWaypoint = waypoints.GetNextWaypoint(currentWaypoint, carSpawner.routeIndex);
 
                 // If the bus is at the bus stop, wait
-                if (waypointClass.isBusStop && entityType == "Bus"){
+                /* if (waypointClass.isBusStop && entityType == "Bus"){
+                    currentMovementState = MovementState.Waiting;
+                    rb.constraints = RigidbodyConstraints.FreezePosition & RigidbodyConstraints.FreezeRotationX & RigidbodyConstraints.FreezeRotationZ;
+                } */
+
+                if (waypointClass.isBusStop && entityType == "Bus" && busGameManager.BusStopped){
                     currentMovementState = MovementState.Waiting;
                     rb.constraints = RigidbodyConstraints.FreezePosition & RigidbodyConstraints.FreezeRotationX & RigidbodyConstraints.FreezeRotationZ;
                 }

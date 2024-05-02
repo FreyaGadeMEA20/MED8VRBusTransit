@@ -31,7 +31,7 @@ public class BusScreenController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    /* void Update()
     {
         // Check for input to change the image
         if (Input.GetKeyDown(KeyCode.Space))
@@ -42,7 +42,7 @@ public class BusScreenController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M)){
             ApplyStopTexture();
         }
-    }
+    } */
 
     public void ApplyNextTexture(){
         // Increment the index

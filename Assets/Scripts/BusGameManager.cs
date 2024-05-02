@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class BusGameManager : MonoBehaviour
 {
+    public enum ProjectType {
+        SUI,
+        MED8
+    }
+    [SerializeField] ProjectType type;
+
     // Define the possible states
     public enum GameState
     {
         SCHOOL,
         PHONE,
         SIGN,
-        BUS
+        BUS,
+        WAIT,
+        STOP,
     }
 
     // Current state of the game
@@ -28,17 +36,47 @@ public class BusGameManager : MonoBehaviour
     [SerializeField] GameObject StopBeam;
     [SerializeField] CarSpawner carSpawer;
     [SerializeField] GameObject busDeath;
+
+    WaypointMover WPM;
+
+    DoorController doors;
+
     private bool hasCheckedIn{
         get{return HasCheckedIn;}
         set{HasCheckedIn = value;}
     }
 
     public bool HasCheckedIn;
+
+    private bool driveAllowed{
+        get{return DriveAllowed;}
+        set{DriveAllowed = value;}
+    }
+    
+    public bool DriveAllowed;
+
+    private bool busStopped{
+        get{return BusStopped;}
+        set{BusStopped = value;}
+    }
+
+    public bool BusStopped;
+
+    bool animationPlayed = false;
+    public bool firstTime = true;
+
     // Start is called before the first frame update
     void Start()
     {
         // Set the initial state
-        currentState = GameState.SCHOOL;
+        switch(type){
+            case ProjectType.SUI:
+                currentState = GameState.STOP;
+                break;
+            case ProjectType.MED8:
+                currentState = GameState.SCHOOL;
+                break;                
+        }
         //StartCoroutine(fade());
     }
 
@@ -46,27 +84,44 @@ public class BusGameManager : MonoBehaviour
     void Update()
     {
         // Check for state transitions
-        switch (currentState)
-        {
-            case GameState.SCHOOL:
-                // Handle SCHOOL state logic
-                UpdateSchoolState();
+        switch(type){
+            case ProjectType.SUI:
+                switch (currentState){
+                    case GameState.WAIT:
+                        UpdateWaitState();
+                        break;
+                    case GameState.BUS:
+                        driveAllowed = false;
+                        busStopped = false;
+                        break;
+                    case GameState.STOP:
+                        UpdateStopState();
+                        break;
+                }
                 break;
+            case ProjectType.MED8:
+                switch (currentState) {
+                    case GameState.SCHOOL:
+                        // Handle SCHOOL state logic
+                        UpdateSchoolState();
+                        break;
 
-            case GameState.PHONE:
-                // Handle PHONE state logic
-                UpdatePhoneState();
-                break;
+                    case GameState.PHONE:
+                        // Handle PHONE state logic
+                        UpdatePhoneState();
+                        break;
 
-            case GameState.SIGN:
-                // Handle SIGN state logic
-                UpdateSignState();
-                break;
+                    case GameState.SIGN:
+                        // Handle SIGN state logic
+                        UpdateSignState();
+                        break;
 
-            case GameState.BUS:
-                // Handle BUS state logic
-                UpdateBusState();
-                break;
+                    case GameState.BUS:
+                        // Handle BUS state logic
+                        UpdateBusState();
+                        break;
+                }
+            break;
         }
     }
 
@@ -209,5 +264,59 @@ public class BusGameManager : MonoBehaviour
         {
             return false;
         }
+    }
+
+    void UpdateWaitState(){
+        if (!animationPlayed && doors != null)
+            StartCoroutine(PlayOpenAnim());
+
+        if(hasCheckedIn)
+            StartCoroutine(Drive());
+    }
+
+    IEnumerator PlayOpenAnim(){
+        doors.OpenDoors();
+
+        animationPlayed = true;
+
+        yield return new WaitForSeconds(1);
+    }
+
+    IEnumerator Drive(){
+        currentState = GameState.BUS;
+        animationPlayed = false;
+
+        yield return new WaitForSeconds(2);
+        
+        doors.CloseDoors();
+
+        yield return new WaitForSeconds(3);
+
+        driveAllowed = true;
+
+        WPM.hasCheckedIn = true;
+    }
+
+    void UpdateStopState(){
+        if(firstTime)
+            return;
+
+        if(!busStopped)
+            return;
+        
+        if(!hasCheckedIn){
+            currentState = GameState.WAIT;
+        }
+    }
+
+    public void StopBus(){
+        busStopped = true;
+        currentState = GameState.STOP;
+    }
+
+    public void GetWPM(WaypointMover wpm, DoorController door){
+        WPM = wpm;
+
+        doors = door;
     }
 }
