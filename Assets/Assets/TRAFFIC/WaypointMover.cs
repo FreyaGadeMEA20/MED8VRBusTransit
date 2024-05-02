@@ -45,7 +45,6 @@ public class WaypointMover : MonoBehaviour
                 case MovementState.Moving:
                     rb.constraints = RigidbodyConstraints.FreezePositionY & RigidbodyConstraints.FreezeRotationX & RigidbodyConstraints.FreezeRotationZ;
                     //carSpawner.doSpawnCars = true;
-                    MoveTowardsWaypoint();
                     break;
 
                 case MovementState.Waiting:
@@ -116,8 +115,13 @@ public class WaypointMover : MonoBehaviour
         yield return new WaitForSeconds(1);
 
     }
-    void Update(){
-        RotateTowardsWaypoint();
+    void FixedUpdate(){
+        switch(currentMovementState){
+            case MovementState.Moving:
+                MoveTowardsWaypoint();
+                RotateTowardsWaypoint();
+                break;
+        }
         //CheckIfCanMove();
 
         routeIndex = carSpawner.routeIndex;
