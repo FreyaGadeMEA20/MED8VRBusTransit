@@ -22,23 +22,23 @@ public class PlayerAttacher : MonoBehaviour
         _constrainer.AddSource(constraintSource);
     }
 
+    // On trigger enter
+    //  - triggers when an object enters the area of the box collider
     void OnTriggerEnter(Collider other){
+        // Only checking on the tag being the player...
         if(other.tag == "Player"){
+            // ... then attaches the transform to the bus game object
             other.transform.parent = bus.transform;
-            //other.transform.position += new Vector3(0, 0.1f, 0);
-            //_dmp.useGravity = false;
-            Debug.Log("Attached");
-            //_constrainer.constraintActive = true;
         }
     }
-
+    
+    // On trigger exit
+    //  - triggers when an object exits the area of the box collider
     void OnTriggerExit(Collider other){
+        // Only checking on the tag being the player...
         if (other.tag == "Player"){
+            // ... then sets the player to have no parent
             other.transform.parent = null;
-            Debug.Log("Dettached");
-            //other.transform.position -= new Vector3(0, 0.1f, 0);
-            //_dmp.useGravity = true;
-            //_constrainer.constraintActive = false;
         }
     }
 }
